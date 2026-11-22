@@ -1,5 +1,10 @@
 import pyttsx3
+from gtts import gTTS
 
+def text_to_speech(text, lang='en', slow=False, filename='output.mp3'):
+    tts = gTTS(text=text, lang=lang, slow=slow)
+    tts.save(filename)
+    
 def get_engine():
     engine = pyttsx3.init('sapi5')
     voices = engine.getProperty('voices')
@@ -32,6 +37,7 @@ def wish_user() -> None:
     speak("I am your jarvis voice assistant. How can I help you today?")
 
 if __name__ == "__main__":
-    wish_user()
-    speak("Hello! This is text to speech using pyttsx3.")
-    save_to_file("This sentence is saved to an audio file.", "output.mp3")
+    # wish_user()
+    # speak("Hello! This is text to speech using pyttsx3.")
+    # save_to_file("This sentence is saved to an audio file.", "output.mp3")
+    text_to_speech('Hi, I am Jarvis, your personal voice assistant. How can I help you today?', filename='output.mp3')

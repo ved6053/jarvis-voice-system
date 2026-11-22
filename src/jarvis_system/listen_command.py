@@ -18,7 +18,7 @@ def take_command(timeout: int = 5, phrase_time_limit: int = 10) -> str:
 
     try:
         logging.info("Recognizing...")
-        text = recognizer.recognize_google(audio, language="en-in")
+        text = recognizer.recognize_google(audio)
         logging.info(f"You said: {text}")
         return text.lower()
     except sr.UnknownValueError:
